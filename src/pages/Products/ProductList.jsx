@@ -1,15 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ProductCard } from "../../components/Elements/ProductCard";
 import { FilterBar } from "./components/FilterBar";
 
 export const ProductList = () => {
   const [show, setShow] = useState(false);
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    async function fetchProducts() {
+      const fetchedData = await fetch("http://localhost:8000/products");
+      const data = await fetchedData.json();
+      setProducts(data);
+    }
+
+    fetchProducts();
+  }, []);
   return (
     <main>
       <section className="my-5">
         <div className="my-5 flex justify-between">
           <span className="text-2xl font-semibold dark:text-slate-100 mb-5">
-            All eBooks (15)
+            All eBooks ({products.length})
           </span>
           <span>
             <button
@@ -33,7 +43,9 @@ export const ProductList = () => {
         </div>
 
         <div className="flex flex-wrap justify-center lg:flex-row">
-          <ProductCard />
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
         </div>
       </section>
       {show && <FilterBar setShow={setShow} />}
