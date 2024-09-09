@@ -4,12 +4,15 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { ScrollToTop } from "./components";
 import App from "./App.jsx";
 import "./index.css";
+import { FilterProvider } from "./context";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Router>
-      <ScrollToTop />
-      <App />
+      <FilterProvider>
+        <ScrollToTop />
+        <App />
+      </FilterProvider>
     </Router>
   </StrictMode>
 );
