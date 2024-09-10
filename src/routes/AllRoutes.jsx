@@ -1,6 +1,12 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { HomePage, ProductList, ProductDetail } from "../pages";
+import {
+  HomePage,
+  ProductList,
+  ProductDetail,
+  Login,
+  Register,
+} from "../pages";
 
 export const AllRoutes = () => {
   return (
@@ -9,6 +15,9 @@ export const AllRoutes = () => {
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/products" element={<ProductList />}></Route>
         <Route path="/products/:id" element={<ProductDetail />}></Route>
+
+        <Route path="login" element={<Login />}></Route>
+        <Route path="register" element={<Register />}></Route>
       </Routes>
     </>
   );
