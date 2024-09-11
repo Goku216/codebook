@@ -8,20 +8,22 @@ import "react-toastify/dist/ReactToastify.css";
 import { ScrollToTop } from "./components";
 import App from "./App.jsx";
 import "./index.css";
-import { FilterProvider } from "./context";
+import { CartProvider, FilterProvider } from "./context";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Router>
-      <FilterProvider>
-        <ScrollToTop />
-        <ToastContainer
-          closeButton={false}
-          autoClose={3000}
-          position="bottom-right"
-        />
-        <App />
-      </FilterProvider>
+      <CartProvider>
+        <FilterProvider>
+          <ScrollToTop />
+          <ToastContainer
+            closeButton={false}
+            autoClose={3000}
+            position="bottom-right"
+          />
+          <App />
+        </FilterProvider>
+      </CartProvider>
     </Router>
   </StrictMode>
 );
