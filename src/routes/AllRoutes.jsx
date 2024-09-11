@@ -6,6 +6,7 @@ import {
   ProductDetail,
   Login,
   Register,
+  CartPage,
 } from "../pages";
 
 export const AllRoutes = () => {
@@ -18,6 +19,8 @@ export const AllRoutes = () => {
 
         <Route path="login" element={<Login />}></Route>
         <Route path="register" element={<Register />}></Route>
+
+        <Route path="cart" element={<CartPage />}></Route>
       </Routes>
     </>
   );

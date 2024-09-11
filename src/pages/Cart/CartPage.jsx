@@ -1,3 +1,7 @@
+import { CartEmpty } from "./components/CartEmpty";
+import { CartList } from "./components/CartList";
+
 export const CartPage = () => {
-  return <main></main>;
+  const cartlistLength = 1;
+  return <main>{cartlistLength ? <CartList /> : <CartEmpty />}</main>;
 };
