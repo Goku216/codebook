@@ -9,4 +9,4 @@ export { DashboardPage } from "./Dashboard/DashboardPage";
 export { Login } from "./Login";
 export { Register } from "./Register";
 
-import { PageNotFound } from "./PageNotFound";
+export { PageNotFound } from "./PageNotFound";
